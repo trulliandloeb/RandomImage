@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Loaded="Window_Loaded_1" AllowsTransparency="True" WindowStyle="None" Background="Transparent">
+    <Window.Resources>
+        <Storyboard x:Key="MyStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.0" To="1.0" Duration="0:0:1.5"></DoubleAnimation>
+        </Storyboard>
+        <Style x:Key="ImageStyle" TargetType="{x:Type Image}">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Image.Loaded">
+                    <BeginStoryboard Storyboard="{StaticResource MyStoryboard}"></BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <!--<Grid>
+        <StackPanel Margin="10">
+            <Image
+                Name="MyRectangle"
+                Width="100" 
+                Height="100"
+                Source="firefox.png"
+                >
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Image.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="MyRectangle" 
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0" To="1.0" Duration="0:0:5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+        </StackPanel>
+    </Grid>-->
+</Window>
